@@ -84,9 +84,10 @@ jobs:
           cache: 'gradle'
         id: java
       - name: ⚙️ Setup Melos
-        uses: actions/checkout@v2
-        uses: dart-lang/setup-dart@v1
-        uses: bluefireteam/melos-action@v2
+        uses: 
+        - actions/checkout@v2
+        - dart-lang/setup-dart@v1
+        - bluefireteam/melos-action@v2
       - name: ⚙️ Install dependencies for all packages
         run: melos build:pub_get:all
       - name: 🤖🔨 Build Android app
@@ -94,4 +95,3 @@ jobs:
           pushd app/
           flutter build appbundle --debug --flavor dev -t lib/main.dart
           popd
-
