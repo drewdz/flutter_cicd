@@ -76,17 +76,17 @@ jobs:
         with:
           channel: 'stable'
           cache: true
-#      - name: ⚙️ Setup Java
-#       uses: actions/setup-java@v3
-#        with:
-#          distribution: 'zulu'
-#          java-version: "12.x"
-#          cache: 'gradle'
-#        id: java
       - name: ⚙️ Setup Melos
         uses: bluefireteam/melos-action@v2
       - name: ⚙️ Install dependencies for all packages
         run: melos build:pub_get:all
+      - name: ⚙️ Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: "12.x"
+          cache: 'gradle'
+        id: java
       - name: 🤖🔨 Build Android app
         run: |
           pushd app/

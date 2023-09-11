@@ -2,3 +2,13 @@ name: flutter_cicd
 
 packages:
   - packages/*
+
+scripts:
+  ###############################################
+  ##              BUILD COMMANDS               ##
+  ###############################################
+  build:pub_get:all:
+    run: flutter pub get
+    exec:
+      concurrency: 6
+    description: Install all dependencies
