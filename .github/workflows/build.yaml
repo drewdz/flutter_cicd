@@ -94,3 +94,4 @@ jobs:
           pushd app/
           flutter build appbundle --debug --flavor dev -t lib/main.dart
           popd
+
