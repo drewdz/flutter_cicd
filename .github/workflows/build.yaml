@@ -89,6 +89,7 @@ jobs:
         id: java
       - name: 🤖🔨 Build Android app
         run: |
+          dirs -l -v
           pushd app/
           flutter build appbundle --debug --flavor dev -t lib/main.dart
           popd
