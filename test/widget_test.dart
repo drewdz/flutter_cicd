@@ -27,4 +27,14 @@ void main() {
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
   });
+
+  //  failing test
+  testWidgets("This test should fail", (tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(const MyApp());
+
+    // since the app was just started, the text would be '0'
+    expect(find.text('0'), findsNothing);
+    expect(find.text('2'), findsOneWidget);
+  });
 }
