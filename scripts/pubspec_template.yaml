@@ -1,0 +1,6 @@
+name: flutter_cicd
+description: Dart Code Metrics helper for aggregated report generation
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+  flutter: ">=3.7.0 <4.0.0"
