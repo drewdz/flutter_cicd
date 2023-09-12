@@ -90,4 +90,3 @@ jobs:
       - name: 🤖🔨 Build Android app
         run: |
           flutter build appbundle --debug -t lib/main.dart
-          popd
