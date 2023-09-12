@@ -90,6 +90,6 @@ jobs:
       - name: 🤖🔨 Build Android app
         run: |
           dirs -l -v
-          pushd app/
+          pushd android/app/
           flutter build appbundle --debug --flavor dev -t lib/main.dart
           popd
