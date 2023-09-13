@@ -5,8 +5,10 @@ while read FILENAME; do
   LCOV_INPUT_FILES="$LCOV_INPUT_FILES -a \"$PROJECT_ROOT_PATH/coverage/$FILENAME\""
 done < <( ls "$1/coverage/" )
 
+echo "- ready to combine files"
 echo "${LCOV_INPUT_FILES}"
 
+echo "- combining files"
 eval lcov "${LCOV_INPUT_FILES}" -o $PROJECT_ROOT_PATH/coverage_report/combined_lcov.info
 
 lcov --remove $PROJECT_ROOT_PATH/coverage_report/combined_lcov.info \
