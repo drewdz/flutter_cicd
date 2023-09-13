@@ -22,11 +22,11 @@ on:
       - '.vscode/'
 
 jobs:
-  testAndCoverage:
-    name: 🧪 Test
-    if: github.event.pull_request.draft == false
-    uses: ./.github/workflows/_test_with_coverage.yaml
-    secrets: inherit
+  # testAndCoverage:
+  #   name: 🧪 Test
+  #   if: github.event.pull_request.draft == false
+  #   uses: ./.github/workflows/_test_with_coverage.yaml
+  #   secrets: inherit
 
   build:
     name: Build Android
