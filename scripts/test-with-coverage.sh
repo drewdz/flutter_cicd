@@ -5,6 +5,9 @@ PROJECT_ROOT_PATH=$1
 PACKAGE_PATH=$2
 PACKAGE_NAME=$3
 
+echo "- test-with-coverage.sh => Info..."
+echo $PROJECT_ROOT_PATH
+echo $PACKAGE_PATH
 echo $PACKAGE_NAME
 
 PACKAGE_LCOV_INFO_PATH=$PROJECT_ROOT_PATH/coverage/lcov_$PACKAGE_NAME.info
