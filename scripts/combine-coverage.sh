@@ -6,18 +6,20 @@ while read FILENAME; do
 done < <( ls "$1/coverage/" )
 
 echo "- ready to combine files"
-echo "${LCOV_INPUT_FILES}"
+if [$LCOV_INPUT_FILES == ""] then
+  echo "- no files found to combine"
+else
+  echo "- combining files"
+  eval lcov "${LCOV_INPUT_FILES}" -o $PROJECT_ROOT_PATH/coverage_report/combined_lcov.info
 
-echo "- combining files"
-eval lcov "${LCOV_INPUT_FILES}" -o $PROJECT_ROOT_PATH/coverage_report/combined_lcov.info
-
-lcov --remove $PROJECT_ROOT_PATH/coverage_report/combined_lcov.info \
-  "lib/main_*.dart" \
-  "*.gr.dart" \
-  "*.g.dart" \
-  "*.freezed.dart" \
-  "*di.config.dart" \
-  "*.i69n.dart" \
-  "*/generated/*" \
-  "*.theme_extension.dart" \
-  -o $PROJECT_ROOT_PATH/coverage_report/cleaned_combined_lcov.info
+  lcov --remove $PROJECT_ROOT_PATH/coverage_report/combined_lcov.info \
+    "lib/main_*.dart" \
+    "*.gr.dart" \
+    "*.g.dart" \
+    "*.freezed.dart" \
+    "*di.config.dart" \
+    "*.i69n.dart" \
+    "*/generated/*" \
+    "*.theme_extension.dart" \
+    -o $PROJECT_ROOT_PATH/coverage_report/cleaned_combined_lcov.info
+  end
