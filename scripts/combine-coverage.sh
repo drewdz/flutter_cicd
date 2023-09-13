@@ -6,9 +6,8 @@ while read FILENAME; do
 done < <( ls "$1/coverage/" )
 
 echo "- ready to combine files"
-if [$LCOV_INPUT_FILES == ""] then
-  echo "- no files found to combine"
-else
+if [ -n $LCOV_INPUT_FILES ] 
+then
   echo "- combining files"
   eval lcov "${LCOV_INPUT_FILES}" -o $PROJECT_ROOT_PATH/coverage_report/combined_lcov.info
 
@@ -22,4 +21,4 @@ else
     "*/generated/*" \
     "*.theme_extension.dart" \
     -o $PROJECT_ROOT_PATH/coverage_report/cleaned_combined_lcov.info
-  end
+fi

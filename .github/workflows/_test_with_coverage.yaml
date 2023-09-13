@@ -24,8 +24,6 @@ jobs:
         uses: bluefireteam/melos-action@v2
       - name: ⚙️ Install dependencies for all packages
         run: melos build:pub_get:all
-      - name: What are lcov args?
-        run: lcov --help
       - name: 🧪 Run tests with coverage
         run: melos test:with-lcov-coverage:all
       - name: 🧪✅❌ Publish test results
