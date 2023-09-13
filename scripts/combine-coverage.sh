@@ -8,6 +8,9 @@ done < <( ls "$1/coverage/" )
 echo "- ready to combine files"
 if [ -n $LCOV_INPUT_FILES ] 
 then
+  echo "- files"
+  echo $LCOV_INPUT_FILES
+  
   echo "- creating output file"
   touch $PROJECT_ROOT_PATH/coverage_report/combined_lcov.info
 
