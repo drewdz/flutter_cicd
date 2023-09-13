@@ -5,8 +5,11 @@ while read FILENAME; do
   LCOV_INPUT_FILES="$LCOV_INPUT_FILES -a \"$PROJECT_ROOT_PATH/coverage/$FILENAME\""
 done < <( ls "$1/coverage/" )
 
+echo "- current files list"
+echo "'$LCOV_INPUT_FILES'"
+
 echo "- trim leading and trailing white space"
-$LCOV_INPUT_FILES = $LCOV_INPUT_FILES | xargs
+LCOV_INPUT_FILES = "$LCOV_INPUT_FILES | xargs"
 
 echo "- ready to combine files"
 if [ -n $LCOV_INPUT_FILES ] 
