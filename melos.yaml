@@ -143,9 +143,7 @@ scripts:
     description: Run Flutter tests and publish local lcov coverage for a specific package
 
   test:with-lcov-coverage:all:
-    run: |
-      melos run test:with-lcov-coverage --no-select && \
-      melos run test:combine-coverage
+    run: melos run test:with-lcov-coverage --no-select | melos run test:combine-coverage
     description: Run Flutter tests for all packages and generate a combined lcov coverage report
 
   test:with-html-coverage:
