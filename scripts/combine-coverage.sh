@@ -1,7 +1,10 @@
 #!/bin/bash
 
 PROJECT_ROOT_PATH=$1
+LCOV_INPUT_FILES=""
+
 while read FILENAME; do
+  echo "- adding file - $FILENAME"
   LCOV_INPUT_FILES="$LCOV_INPUT_FILES -a \"$PROJECT_ROOT_PATH/coverage/$FILENAME\""
 done < <( ls "$1/coverage/" )
 
