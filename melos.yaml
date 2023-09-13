@@ -2,7 +2,6 @@ name: flutter_cicd
 
 packages:
   - app
-  - design_system
 
 scripts:
   ###############################################
@@ -119,21 +118,20 @@ scripts:
     run: melos run test --no-select
     description: Run all Flutter tests in this project.
 
-  test:update-goldens:
-    run: flutter test --no-pub --reporter compact --update-goldens
-    exec:
-      concurrency: 6
-    select-package:
-      dir-exists:
-        - test
-      scope:
-        - "design_system"
-        - "flutter_cicd"
-    description: Run `flutter test` and update goldens for a specific package.
+  # test:update-goldens:
+  #   run: flutter test --no-pub --reporter compact --update-goldens
+  #   exec:
+  #     concurrency: 6
+  #   select-package:
+  #     dir-exists:
+  #       - test
+  #     scope:
+  #       - "flutter_cicd"
+  #   description: Run `flutter test` and update goldens for a specific package.
 
-  test:update-goldens:all:
-    run: melos run test:update-goldens --no-select
-    description: Run Flutter tests and update goldens for all packages in this project
+  # test:update-goldens:all:
+  #   run: melos run test:update-goldens --no-select
+  #   description: Run Flutter tests and update goldens for all packages in this project
 
   test:with-lcov-coverage:
     run: MELOS_ROOT_PATH/scripts/test-with-coverage.sh MELOS_ROOT_PATH MELOS_PACKAGE_PATH MELOS_PACKAGE_NAME
