@@ -27,4 +27,13 @@ void main() {
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
   });
+
+  testWidgets('Failing test', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(const MyApp());
+
+    // this should cause an error since the counter is on 0 on startup
+    expect(find.text('0'), findsNothing);
+    expect(find.text('2'), findsOneWidget);
+  });
 }
