@@ -1,7 +1,7 @@
 name: flutter_cicd
 
 packages:
-  - lib
+  - flutter_cicd
   
 
 scripts:
@@ -127,7 +127,6 @@ scripts:
       dir-exists:
         - test
       scope:
-        - "design_system"
         - "flutter_cicd"
     description: Run `flutter test` and update goldens for a specific package.
 
@@ -146,7 +145,7 @@ scripts:
 
   test:with-lcov-coverage:all:
     run: |
-      melos run test:with-lcov-coverage \ 
+      melos run test:with-lcov-coverage --no-select \ 
       melos run test:combine-coverage
     description: Run Flutter tests for all packages and generate a combined lcov coverage report
 
