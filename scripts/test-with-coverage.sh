@@ -5,6 +5,11 @@ PROJECT_ROOT_PATH=$1
 PACKAGE_PATH=$2
 PACKAGE_NAME=$3
 
+echo "Project Root: $PROJECT_ROOT_PATH"
+echo "Package Path: $PACKAGE_PATH"
+echo "Package Name: $PACKAGE_NAME"
+
+
 PACKAGE_LCOV_INFO_PATH=$PROJECT_ROOT_PATH/coverage/lcov_$PACKAGE_NAME.info
 PACKAGE_TEST_REPORT_PATH=$PROJECT_ROOT_PATH/test_reports/${PACKAGE_NAME}_test_report.json
 
