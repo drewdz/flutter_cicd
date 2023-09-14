@@ -3,8 +3,9 @@
 PROJECT_ROOT_PATH=$1
 while read FILENAME; do
   LCOV_INPUT_FILES="$LCOV_INPUT_FILES -a \"$PROJECT_ROOT_PATH/coverage/$FILENAME\""
-  echo $LCOV_INPUT_FILES
 done < <( ls "$1/coverage/" )
+
+echo "Files: $LCOV_INPUT_FILES"
 
 eval lcov "${LCOV_INPUT_FILES}" -o $PROJECT_ROOT_PATH/coverage_report/combined_lcov.info
 
