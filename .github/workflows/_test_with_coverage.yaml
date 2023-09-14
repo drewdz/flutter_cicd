@@ -25,7 +25,9 @@ jobs:
       - name: ⚙️ Install dependencies for all packages
         run: melos build:pub_get:all
       - name: 🧪 Run tests with coverage
-        run: melos test:with-lcov-coverage:all
+        run: melos test:with-lcov-coverage
+      - name: Combine coverage results
+        run: melos test:combine-coverage
       - name: 🧪✅❌ Publish test results
         id: compute_test_results
         uses: dorny/test-reporter@v1.6.0
