@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Generate coverage report
+# Generate coverage report
 PROJECT_ROOT_PATH=$1
 PACKAGE_PATH=$2
 PACKAGE_NAME=$3
@@ -11,6 +11,8 @@ PACKAGE_TEST_REPORT_PATH=$PROJECT_ROOT_PATH/test_reports/${PACKAGE_NAME}_test_re
 echo "Setup paths done"
 
 mkdir -p $PROJECT_ROOT_PATH/coverage/
+
+
 flutter test \
   --no-pub \
   --machine \
@@ -25,3 +27,5 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 else
   sed -i "s/^SF:lib/SF:$escapedPath\/lib/g" $PACKAGE_LCOV_INFO_PATH
 fi
+
+cat $PACKAGE_TEST_REPORT_PATH
