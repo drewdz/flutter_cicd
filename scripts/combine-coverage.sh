@@ -1,8 +1,7 @@
 #!/bin/bash
 
 PROJECT_ROOT_PATH=$1
-echo "Reading files from: $1/coverage/"
-ls "$1/coverage/"
+echo "Reading files from: $1/coverage/\n" | ls "$PROJECT_ROOT_PATH/coverage/"
 
 while read FILENAME; do
   LCOV_INPUT_FILES="$LCOV_INPUT_FILES -a \"$PROJECT_ROOT_PATH/coverage/$FILENAME\""
