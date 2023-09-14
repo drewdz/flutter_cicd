@@ -2,7 +2,7 @@
 
 PROJECT_ROOT_PATH=$1
 echo "Reading files from: $1/coverage/"
-ls "$PROJECT_ROOT_PATH/coverage/"
+ls PROJECT_ROOT_PATH
 
 while read FILENAME; do
   LCOV_INPUT_FILES="$LCOV_INPUT_FILES -a \"$PROJECT_ROOT_PATH/coverage/$FILENAME\""
