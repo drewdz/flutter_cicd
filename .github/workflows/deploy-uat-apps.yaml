@@ -57,18 +57,18 @@ jobs:
           message: "UAT release ${{ steps.get_new_pubspec_version.outputs.next_pubspec_version }}"
           github_token: ${{ secrets.RELEASE_AUTOMATOR_PAT }}
 
-  deployUat:
-    name: Deploy UAT
-    uses: ./.github/workflows/_deploy-env-apps.yaml
-    needs: gitRelease
-    secrets: inherit
-    with:
-      android-environment-name: 'Android UAT'
-      android-environment-url: 'https://play.google.com/console/u/0/developers/7200533445067191438/app/4975719898219218293/tracks/internal-testing'
-      android-package-name: 'com.fluttercicd.uat'
-      android-release-status: 'completed'
-      ios-environment-name: 'iOS UAT'
-      ios-environment-url: 'https://appstoreconnect.apple.com/apps/1664853019/testflight'
-      short-environment-name: 'UAT'
-      flavor: 'uat'
-      new-pubspec-version: ${{ needs.gitRelease.outputs.new_pubspec_version }}
+#  deployUat:
+#    name: Deploy UAT
+#    uses: ./.github/workflows/_deploy-env-apps.yaml
+#    needs: gitRelease
+#    secrets: inherit
+#    with:
+#      android-environment-name: 'Android UAT'
+#      android-environment-url: 'https://play.google.com/console/u/0/developers/7200533445067191438/app/4975719898219218293/tracks/internal-testing'
+#      android-package-name: 'com.fluttercicd.uat'
+#      android-release-status: 'completed'
+#      ios-environment-name: 'iOS UAT'
+#      ios-environment-url: 'https://appstoreconnect.apple.com/apps/1664853019/testflight'
+#      short-environment-name: 'UAT'
+#      flavor: 'uat'
+#      new-pubspec-version: ${{ needs.gitRelease.outputs.new_pubspec_version }}
